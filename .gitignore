@@ -1,0 +1,24 @@
+# Local secrets and databases
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+# Installed dependencies and environments
+frontend/node_modules/
+backend/venv/
+backend/.venv/
+# Generated builds, test output and caches
+frontend/dist/
+**/test-results/
+**/__pycache__/
+*.py[cod]
+**/.pytest_cache/
+**/.ruff_cache/
+*.tsbuildinfo
+*.log
+.DS_Store
+Thumbs.db

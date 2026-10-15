@@ -1,0 +1,16 @@
+**/node_modules
+**/venv
+**/.venv
+**/dist
+**/.pytest_cache
+**/.ruff_cache
+**/__pycache__
+**/*.db
+**/*.db-shm
+**/*.db-wal
+.env
+**/test-results
+**/*.tsbuildinfo
+backend/docs/evidence
+.git
+**/.env

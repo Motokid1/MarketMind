@@ -1,0 +1,9 @@
+{
+  "mcp": "unavailable",
+  "environment": "Docker Compose after backend recreation",
+  "api_proxy_returns_json": true,
+  "database": "ready",
+  "frontend_http_status": 200,
+  "covered_capabilities": 0,
+  "backend_recreated": true
+}

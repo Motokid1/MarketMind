@@ -1,0 +1,23 @@
+{
+  "frontend_status": 200,
+  "ready": {
+    "status": "ready",
+    "database": "ready",
+    "mcp": "available",
+    "enabled_methods": 9
+  },
+  "run_http_status": 201,
+  "run_id": "6214ee90-9ad7-4ea1-977c-b63cc3e0faf2",
+  "state": "degraded",
+  "duration_seconds": 48.689,
+  "quantitative_claims": 0,
+  "all_claims_grounded": true,
+  "synthetic": false,
+  "warnings": [
+    "RELIANCE: symbol resolution unavailable; history omitted",
+    "B07: UPSTREAM_TIMEOUT \u2014 Source unavailable; no values fabricated",
+    "B08: UPSTREAM_TIMEOUT \u2014 Source unavailable; no values fabricated",
+    "B11: UPSTREAM_TIMEOUT \u2014 Source unavailable; no values fabricated"
+  ],
+  "export_status": 200
+}

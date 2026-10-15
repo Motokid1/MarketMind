@@ -1,0 +1,249 @@
+[
+  {
+    "capability": "B01",
+    "id": "bhavcopy:search_symbols",
+    "schema_hash": "474e8ac1dd9538de1faad2d30e794d268b3a0e9e9b5c40b7e005cf1eed28739f",
+    "args": {
+      "q": "query"
+    },
+    "defaults": {},
+    "parser": "symbols",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B02",
+    "id": "bhavcopy:get_stock_history",
+    "schema_hash": "ba921f54684331bff7781f9e2411a9f1d571d8b4f4d1ffaa59997232c5526311",
+    "args": {
+      "symbol": "symbol",
+      "months": "months",
+      "end": "endDate"
+    },
+    "defaults": {
+      "months": 3
+    },
+    "parser": "history",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B03",
+    "id": "bhavcopy:get_ltp_by_date",
+    "schema_hash": "afc1b1f3242169b8343efafb2d9ba6183eb2e0227383862f1615dd188c1e43c6",
+    "args": {
+      "symbol": "symbol",
+      "end": "date"
+    },
+    "defaults": {},
+    "parser": "undated_scalar",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B04",
+    "id": "bhavcopy:compare_stocks",
+    "schema_hash": "5586b980c6d6fdab290b37be7c99073190f84625c286607ce0527544d5ce3ba7",
+    "args": {
+      "symbols": "symbols",
+      "months": "months"
+    },
+    "defaults": {
+      "months": 1
+    },
+    "parser": "unsupported_shape",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B05",
+    "id": "bhavcopy:get_volume_analysis",
+    "schema_hash": "5d53a709b99926ed1e05cd0d85e825605c018519a7175b631c7e3edfddb134be",
+    "args": {
+      "symbol": "symbol",
+      "days": "days"
+    },
+    "defaults": {
+      "days": 30
+    },
+    "parser": "unsupported_shape",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B06",
+    "id": "bhavcopy:get_bulk_quote",
+    "schema_hash": "403710dc3289ddd8ddf5156c1b65079af978f2657b7d91dcceb1f82fd2a65162",
+    "args": {
+      "symbols": "symbols"
+    },
+    "defaults": {},
+    "parser": "unsupported_shape",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B07",
+    "id": "bhavcopy:get_top_movers",
+    "schema_hash": "67987a3424a337910874676ad308074eb1ddb54b0dcce8b1cf8eadd836ef3f00",
+    "args": {
+      "end": "date",
+      "limit": "n",
+      "direction": "direction"
+    },
+    "defaults": {
+      "limit": 10,
+      "direction": "gain"
+    },
+    "parser": "historical_movers",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B08",
+    "id": "bhavcopy:get_top_movers",
+    "schema_hash": "67987a3424a337910874676ad308074eb1ddb54b0dcce8b1cf8eadd836ef3f00",
+    "args": {
+      "end": "date",
+      "limit": "n",
+      "direction": "direction"
+    },
+    "defaults": {
+      "limit": 10,
+      "direction": "loss"
+    },
+    "parser": "historical_movers",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B09",
+    "id": "bhavcopy:compare_stocks",
+    "schema_hash": "5586b980c6d6fdab290b37be7c99073190f84625c286607ce0527544d5ce3ba7",
+    "args": {
+      "symbols": "symbols",
+      "months": "months"
+    },
+    "defaults": {
+      "months": 1
+    },
+    "parser": "unsupported_shape",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B10",
+    "id": "bhavcopy:get_52_week_high_low",
+    "schema_hash": "ef30c24496f4a833741ef040faf3d4bc49c7aa295eaa3e4feca0e5da2df88aa1",
+    "args": {
+      "symbol": "symbol"
+    },
+    "defaults": {},
+    "parser": "undated_range",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "B11",
+    "id": "bhavcopy:get_market_breadth",
+    "schema_hash": "083c253abb7c09e2a00eb059a2256b5761be3bc45b61146fa58d0f3bfc9b9851",
+    "args": {
+      "end": "date"
+    },
+    "defaults": {},
+    "parser": "breadth",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L01",
+    "id": "cmmkt:nse_get_gainers",
+    "schema_hash": "0a6db8a5ba907d6c8665f73001b0cf721ae7b87aec7dd70fcda14bcdf4f86f0a",
+    "args": {
+      "limit": "limit"
+    },
+    "defaults": {
+      "limit": 10
+    },
+    "parser": "current_movers",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L02",
+    "id": "cmmkt:cm_get_index_quote",
+    "schema_hash": "9c109e99d7a53a32818d0647265135042ba3aa70b60f8b93c6f602d38f26bef9",
+    "args": {
+      "index": "indexName"
+    },
+    "defaults": {},
+    "parser": "index",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L03",
+    "id": "cmmkt:cm_get_sme_stocks",
+    "schema_hash": "8ec639cefbafaaa84c48a3b8c7946bc232b4cca150779c12d54880077171ab2c",
+    "args": {
+      "limit": "limit",
+      "q": "symbolFilter"
+    },
+    "defaults": {
+      "limit": 100,
+      "q": ""
+    },
+    "parser": "listing",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L04",
+    "id": "cmmkt:cm_get_stock_quote",
+    "schema_hash": "ee0ae41fc4d66223a8050cedc76ad51cf1a9f089205446bc909431336cc3a677",
+    "args": {
+      "symbol": "symbol"
+    },
+    "defaults": {},
+    "parser": "quote",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L05",
+    "id": "cmmkt:nse_get_losers",
+    "schema_hash": "0a6db8a5ba907d6c8665f73001b0cf721ae7b87aec7dd70fcda14bcdf4f86f0a",
+    "args": {
+      "limit": "limit"
+    },
+    "defaults": {
+      "limit": 10
+    },
+    "parser": "current_movers",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L06",
+    "id": "cmmkt:cm_get_equity_stocks",
+    "schema_hash": "71caa861bbd66c3c53af906e86dcd03d8e5042a3a7ec1b0c0fc4836974946e65",
+    "args": {
+      "limit": "limit",
+      "q": "symbolFilter"
+    },
+    "defaults": {
+      "limit": 100,
+      "q": ""
+    },
+    "parser": "listing",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L07",
+    "id": "cmmkt:cm_get_bond_stocks",
+    "schema_hash": "e2d72a37f920b751953d65982a20ee103402aa32b780addb1b796a9feefa2d3f",
+    "args": {
+      "limit": "limit",
+      "q": "symbolFilter"
+    },
+    "defaults": {
+      "limit": 100,
+      "q": ""
+    },
+    "parser": "listing",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  },
+  {
+    "capability": "L08",
+    "id": "cmmkt:cm_get_data_status",
+    "schema_hash": "9284f72895b68d5da186e57484e6016aaea4ebb94234017590759919bde51cc4",
+    "args": {},
+    "defaults": {},
+    "parser": "freshness",
+    "review_note": "Input schema reviewed against live tools/list. Output parser rejects missing timestamps; unsupported response shapes remain disabled for numeric claims."
+  }
+]

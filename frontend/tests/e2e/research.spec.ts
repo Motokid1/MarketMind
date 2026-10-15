@@ -1,0 +1,23 @@
+import {test,expect} from '@playwright/test';
+test('researcher journey, delayed sources, aligned analytics and export',async({page},testInfo)=>{
+ await page.goto('/login');await page.getByRole('button',{name:'Create an account',exact:true}).click();
+ await page.getByLabel('Email',{exact:true}).fill(`e2e-${Date.now()}-${testInfo.project.name}@example.test`);
+ await page.getByLabel('Password',{exact:true}).fill('strong-test-password');await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Create account',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Market pulse'})).toBeVisible();
+ await expect(page.getByText('SYNTHETIC DEMONSTRATION · All market values')).toBeVisible();
+ await page.getByText('Source freshness and cache metadata',{exact:true}).click();
+ await expect(page.getByText('Latest known session',{exact:true})).toBeVisible();
+ await page.screenshot({path:`test-results/${testInfo.project.name}-dashboard.png`,fullPage:true});
+ await page.getByRole('link',{name:'Compare',exact:true}).click();
+ await page.getByLabel('Symbols · comma separated').fill('ALPHA, BETA');await page.getByLabel('From',{exact:true}).fill('2026-09-01');await page.getByLabel('Through',{exact:true}).fill('2026-10-09');await page.getByRole('button',{name:'Compare selected symbols'}).click();
+ await expect(page.getByRole('heading',{name:'Comparable metrics'})).toBeVisible();await expect(page.getByText('SYNTHETIC FIXTURE RESULTS')).toBeVisible();
+ await page.getByRole('link',{name:'Research',exact:true}).click();await page.getByLabel('Symbols · comma separated').fill('ALPHA, BETA');await page.getByLabel('From',{exact:true}).fill('2026-09-01');await page.getByLabel('Through',{exact:true}).fill('2026-10-09');await page.getByRole('button',{name:'Generate market briefing'}).click();
+ await expect(page.getByRole('heading',{name:'Research briefing'})).toBeVisible();await expect(page.getByRole('heading',{name:'Dated evidence'})).toBeVisible();
+ const download=page.waitForEvent('download');await page.getByRole('button',{name:'Export sourced HTML'}).click();await expect((await download).suggestedFilename()).toContain('marketmind-');
+ await page.screenshot({path:`test-results/${testInfo.project.name}-research.png`,fullPage:true});
+ await page.getByRole('link',{name:'Portfolio sandbox',exact:true}).click();await page.getByLabel('Symbols · comma separated').fill('ALPHA, BETA');await page.getByLabel('Fractional weights · same order').fill('0.8, 0.8');await page.getByRole('button',{name:'Simulate historical risk'}).click();await expect(page.getByRole('alert')).toContainText('VALIDATION_ERROR');
+ await page.getByRole('link',{name:'Research',exact:true}).click();
+ await page.getByLabel('Symbols · comma separated').fill('UNKNOWN');
+ await page.getByRole('button',{name:'Generate market briefing'}).click();
+ await expect(page.getByRole('alert')).toContainText('INVALID_SYMBOL');
+});

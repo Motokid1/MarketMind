@@ -1,0 +1,64 @@
+{
+  "at": "2026-10-11T07:37:12.664525+00:00",
+  "discovery": {
+    "bhavcopy": "discovered",
+    "cmmkt": "discovered"
+  },
+  "quota": 6,
+  "cases": [
+    {
+      "capability": "B01",
+      "method": "search_symbols",
+      "status": "historical",
+      "source_as_of": "2026-10-09T10:00:00+00:00",
+      "missing_fields": [],
+      "evidence_id": "e64be2a2de99b5b8fd43d2e03e50e613a12311dd5638aaf6c6fa366a38d7fc29",
+      "pass": true
+    },
+    {
+      "capability": "B02",
+      "method": "get_stock_history",
+      "status": "historical",
+      "source_as_of": "2026-10-09T10:00:00+00:00",
+      "missing_fields": [],
+      "evidence_id": "ec0f5e4da04a4c7e0f2a0be4c08606a721cd2dc570692a129995e607651b6fcf",
+      "pass": true
+    },
+    {
+      "capability": "B11",
+      "method": "get_market_breadth",
+      "status": "historical",
+      "source_as_of": "2026-10-09T10:00:00+00:00",
+      "missing_fields": [],
+      "evidence_id": "a88a64c1ee85f399764e71240c24e477ea13708f3062eb5e265a580146295104",
+      "pass": true
+    },
+    {
+      "capability": "L04",
+      "method": "cm_get_stock_quote",
+      "status": "closed",
+      "source_as_of": "2026-10-09T10:30:27+00:00",
+      "missing_fields": [],
+      "evidence_id": "18e294a3b91b59bf50061ecf5d0e67e2619f3d69c14c28afe3a662d6dab8eab1",
+      "pass": true
+    },
+    {
+      "capability": "L02",
+      "method": "cm_get_index_quote",
+      "status": "closed",
+      "source_as_of": "2026-10-09T10:00:00+00:00",
+      "missing_fields": [],
+      "evidence_id": "cc1673484de94fdfea72a0635109a1d11f71e6bb9a6d05a31d92514b0c033b42",
+      "pass": true
+    },
+    {
+      "capability": "L06",
+      "method": "cm_get_equity_stocks",
+      "status": "delayed",
+      "source_as_of": "2026-10-11T07:37:26.947139+00:00",
+      "missing_fields": [],
+      "evidence_id": "6e53d30a8da9494dcbbb638e45870cca309b2c7b1ce6c91e985f1ac2b05a0e5b",
+      "pass": true
+    }
+  ]
+}

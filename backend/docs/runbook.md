@@ -1,0 +1,17 @@
+# Local operations and release gates
+
+Use Docker Compose on localhost. Copy .env.example, replace both secrets with independent random values, set ADMIN_EMAILS if needed, and choose MCP_MODE=live or explicitly synthetic MCP_MODE=mock. The repository has no seeded accounts. Native development is documented in README.md. Docker images use Python 3.12, Node 22 and PostgreSQL 16. Both app ports bind only to loopback; PostgreSQL is not published to the host.
+
+Health: /health/live checks the process; /health/ready checks database connectivity and reports MCP availability/degradation separately. Inspect /admin/mcp for schema hashes, statuses, duration, errors and trace IDs. Unknown methods never become available solely because their names resemble a capability. Review actual input and output contracts before approval. Persisted approval must still match rediscovered hashes on restart.
+
+Configuration: MCP_TIMEOUT, MCP_RETRIES, MCP_CONCURRENCY, CACHE_TTL, FRESHNESS_SECONDS, RETENTION_DAYS and ADMIN_EMAILS are environment settings. Default timeout is eight seconds with one retry; service concurrency is two. The interactive graph has a sixty-second deadline and twelve-call budget including resolutions and retry attempts. Cache hits preserve the original received-at timestamp. Circuit breakers open after repeated failures. No external LLM service or cost is incurred by the deterministic writer.
+
+Retention: the administrator purge endpoint deletes expired reports, their derived run data and expired invocation records, then clears raw caches. Schedule this in an approved local operations environment; no background automation was created by this build. Backups contain user-owned derived records and require access controls and encrypted storage. Underlying volume/device encryption and TLS termination are deployment controls and must be verified before an external release.
+
+Backup: docker compose exec -T db pg_dump -U marketmind marketmind > backup.sql. Restore into a separate validation database with createdb, then psql -v ON_ERROR_STOP=1 and compare the alembic version, table names and record counts before substituting any production database. A local restore rehearsal is recorded in acceptance.md. Never treat an untested backup as recovery evidence.
+
+Rollback: stop new runs, preserve PostgreSQL volume, revert the app image and only reverse migrations after inspecting compatibility with stored completed runs. Migrations 0001 and 0002 include downgrades; downgrade 0002 only while the backend is stopped. Do not use docker compose down -v against user data as routine cleanup.
+
+NSE public terms were checked on 11 October 2026 at https://www.nseindia.com/nse-mcp and https://www.nseindia.com/static/market-data/nse-data-policy. Use is informational/educational. No public or commercial deployment, training, advice or redistribution is authorized by access. G0 external data-rights approval, organizational reviewer approval and G3 release authorization remain external decisions. This build remains local. It does not claim investment suitability, live exchange ticks, commercial licensing or a production SLA.
+
+Source outages: preserve the UI and show degraded/partial sections. Do not replace missing prices with fixtures in live mode. Explicit synthetic mode is for demonstration and CI, and every synthetic card/report is labeled. Bare-price and undated 52-week responses remain unavailable until adequate source evidence exists. Corporate-action, news, fundamentals and brokerage workflows were not added.

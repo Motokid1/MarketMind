@@ -1,0 +1,7 @@
+{
+  "environment": "isolated Windows native backend, synthetic MCP",
+  "backend_restarted": true,
+  "stable_jwt_and_account_survive_restart": true,
+  "observations_refetched_not_fabricated_from_cold_cache": true,
+  "passed": true
+}

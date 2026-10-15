@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: marketmind
+      POSTGRES_USER: marketmind
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes: ["postgres_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U marketmind"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  backend:
+    build: {context: ., dockerfile: backend/Dockerfile}
+    environment:
+      DATABASE_URL: postgresql+psycopg://marketmind:${POSTGRES_PASSWORD}@db:5432/marketmind
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-}
+      MCP_MODE: ${MCP_MODE:-live}
+      MCP_TIMEOUT: ${MCP_TIMEOUT:-25}
+      MCP_RETRIES: ${MCP_RETRIES:-1}
+      CACHE_TTL: ${CACHE_TTL:-60}
+      STALE_CACHE_SECONDS: ${STALE_CACHE_SECONDS:-900}
+      RETENTION_DAYS: ${RETENTION_DAYS:-7}
+    depends_on:
+      db: {condition: service_healthy}
+    ports: ["127.0.0.1:${BACKEND_PORT:-8000}:8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready')"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+  frontend:
+    build: {context: ., dockerfile: frontend/Dockerfile}
+    ports: ["127.0.0.1:${FRONTEND_PORT:-5173}:80"]
+    depends_on:
+      backend: {condition: service_healthy}
+volumes:
+  postgres_data:

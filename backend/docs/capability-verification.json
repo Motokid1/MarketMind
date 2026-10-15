@@ -1,0 +1,143 @@
+{
+  "at": "2026-10-14T14:00:47.928191+00:00",
+  "discovery": {
+    "bhavcopy": "BLOCKED",
+    "cmmkt": "BLOCKED"
+  },
+  "cases": [
+    {
+      "capability": "B01",
+      "name": "Symbol search",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B02",
+      "name": "OHLCV history",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B03",
+      "name": "Closing quote on date",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B04",
+      "name": "Returns",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B05",
+      "name": "Volume trends",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B06",
+      "name": "Bulk quotes",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B07",
+      "name": "Historical gainers",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B08",
+      "name": "Historical losers",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B09",
+      "name": "Multi-stock compare",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B10",
+      "name": "52-week range",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "B11",
+      "name": "Historical breadth",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L01",
+      "name": "Current gainers",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L02",
+      "name": "Index data",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L03",
+      "name": "SME listings",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L04",
+      "name": "Current quote",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L05",
+      "name": "Current losers",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L06",
+      "name": "Equity listings",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L07",
+      "name": "Bond listings",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    },
+    {
+      "capability": "L08",
+      "name": "Freshness",
+      "passed": false,
+      "status": "BLOCKED",
+      "error_code": "SOURCE_UNAVAILABLE"
+    }
+  ],
+  "complete": false
+}
